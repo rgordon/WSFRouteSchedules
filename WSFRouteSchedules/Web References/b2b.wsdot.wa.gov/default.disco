@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<discovery xmlns:scl="http://schemas.xmlsoap.org/disco/scl/" xmlns="http://schemas.xmlsoap.org/disco/">
+  <scl:contractRef docRef="http://b2b.wsdot.wa.gov/ferries/schedule/default.asmx" ref="http://b2b.wsdot.wa.gov/ferries/schedule/default.asmx?wsdl" />
+</discovery>

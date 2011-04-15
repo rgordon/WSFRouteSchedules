@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA0DDF46-8509-44C6-86A1-5C89582BC202}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WSFRouteSchedules</RootNamespace>
+    <AssemblyName>WSFRouteSchedules</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json.Net20, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Web References\b2b.wsdot.wa.gov\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="Web References\b2b.wsdot.wa.gov\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\b2b.wsdot.wa.gov\default.disco" />
+    <None Include="Web References\b2b.wsdot.wa.gov\default.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://b2b.wsdot.wa.gov/ferries/schedule/default.asmx?disco">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\b2b.wsdot.wa.gov</RelPath>
+      <UpdateFromURL>http://b2b.wsdot.wa.gov/ferries/schedule/default.asmx?disco</UpdateFromURL>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References" />
+  </ItemGroup>
+</Project>
